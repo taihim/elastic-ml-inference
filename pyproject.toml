@@ -33,6 +33,7 @@ test = [
     "pytest-cov>=5.0.0",
     "pytest-asyncio>=0.23.7",
     "pytest-mock>=3.14.0",
+    "covdefaults>=2.3.0",
 ]
 typing = [
     "mypy>=1.10.1",
@@ -102,6 +103,31 @@ lint.ignore = [
 ]
 src = ["src"]
 
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.*" = [
+    "A",
+    "ARG",
+    "B",
+    "BLE",
+    "C901",
+    "D",
+    "DTZ",
+    "EM",
+    "FBT",
+    "G",
+    "N",
+    "PGH",
+    "PIE",
+    "PLR",
+    "PLW",
+    "RSE",
+    "S",
+    "S101",
+    "SIM",
+    "TCH",
+    "TRY",
+]
+
 [tool.ruff.format]
 docstring-code-format = true
 docstring-code-line-length = 120
@@ -127,3 +153,18 @@ warn_unreachable = true
 warn_unused_configs = true
 warn_unused_ignores = true
 disable_error_code = 'import-untyped'
+
+
+[tool.coverage.run]
+omit = ["tests/*", "src/api_models.py"]
+plugins = ["covdefaults"]
+source = ["src"]
+
+[tool.coverage.report]
+exclude_lines = [
+    'if TYPE_CHECKING:',
+]
+fail_under = 95
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

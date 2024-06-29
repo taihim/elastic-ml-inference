@@ -34,3 +34,14 @@ repos:
         require_serial: true
         language: system
         types: [ python ]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: name-tests-test
+        args:
+          - --pytest
+        exclude: ^tests/factories|^tests/types|^tests/utils|^tests/test_types
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml

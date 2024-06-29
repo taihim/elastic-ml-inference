@@ -5,7 +5,7 @@
 groups = ["default", "test", "typing", "pre-commit", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.2"
-content_hash = "sha256:a61f59aedb9f2c39aa977c1304f4d95b49ac0611ffd47ec4335dbb12d0560664"
+content_hash = "sha256:bc4218d6ad51eb0556aaed108c0a0ec1118b1a32b294a2efe99a74583792d655"
 
 [[package]]
 name = "annotated-types"
@@ -79,6 +79,20 @@ marker = "sys_platform == \"win32\" or platform_system == \"Windows\""
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
+]
+
+[[package]]
+name = "covdefaults"
+version = "2.3.0"
+requires_python = ">=3.7"
+summary = "A coverage plugin to provide sensible default settings"
+groups = ["test"]
+dependencies = [
+    "coverage>=6.0.2",
+]
+files = [
+    {file = "covdefaults-2.3.0-py2.py3-none-any.whl", hash = "sha256:2832961f6ffcfe4b57c338bc3418a3526f495c26fb9c54565409c5532f7c41be"},
+    {file = "covdefaults-2.3.0.tar.gz", hash = "sha256:4e99f679f12d792bc62e5510fa3eb59546ed47bd569e36e4fddc4081c9c3ebf7"},
 ]
 
 [[package]]

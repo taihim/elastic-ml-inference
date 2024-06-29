@@ -14,7 +14,7 @@ def load_img_from_path(file_path: Path) -> Image:
     return img
 
 
-def load_img(img_bytes: bytes) -> Image:
+def load_img_from_bytes(img_bytes: bytes) -> Image:
     """Loads an image from a byte stream."""
     img_buffer = BytesIO(img_bytes)
     img = pil_open(img_buffer)

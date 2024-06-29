@@ -8,7 +8,7 @@ from msgspec.json import encode
 
 from src.api_models import FormData
 from src.resnet_model import ResnetClassifier
-from src.utils import load_img
+from src.utils import load_img_from_bytes
 
 
 @get("/")
@@ -23,7 +23,7 @@ async def predict(
 ) -> bytes:
     """Returns the predictions for the input image."""
     content = await data.image.read()
-    input_img = load_img(content)
+    input_img = load_img_from_bytes(content)
     return encode(ResnetClassifier.get_or_create_instance().predict(img=input_img, n_results=results))
 
 
