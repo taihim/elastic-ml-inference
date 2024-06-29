@@ -1,0 +1,17 @@
+POST http://localhost:8000/predict?results=3
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="dishwasher.JPEG"
+Content-Type: image/jpeg
+
+< ./dishwasher.JPEG
+--WebAppBoundary--
+
+--WebAppBoundary
+Content-Disposition: form-data; name="filename";
+Content-Type: text/plain
+
+dishwasher.JPEG
+
+###
