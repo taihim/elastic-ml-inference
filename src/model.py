@@ -7,7 +7,7 @@ from torchvision.models import resnet18, ResNet18_Weights
 class ResnetClassifier:
     _instance: ClassVar[Optional["ResnetClassifier"]] = None
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._weights = ResNet18_Weights.IMAGENET1K_V1
         self._model = resnet18(weights=self._weights)
 
@@ -31,7 +31,7 @@ class ResnetClassifier:
             n_results (int): Number of predictions to return
 
         Returns:
-            List[Tuple[str, float]]: List of tuples containing the class name and the confidence score
+            dict[str, float]: Dictionary containing the class names and the confidence scores
         
         """
 
