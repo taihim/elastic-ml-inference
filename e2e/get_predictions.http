@@ -1,4 +1,4 @@
-POST http://localhost:8000/predict?results=5
+POST http://test.example/predict?results=5
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary

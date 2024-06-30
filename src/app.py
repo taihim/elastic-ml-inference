@@ -14,7 +14,7 @@ from src.utils import load_img_from_bytes
 @get("/")
 async def index() -> str:
     """Returns the index page."""
-    return "This is the Elastic ML Inference."
+    return "Welcome to the Elastic ML Inference API."
 
 
 @post("/predict", media_type=MediaType.JSON, status_code=HTTP_200_OK)
