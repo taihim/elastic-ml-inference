@@ -1,4 +1,4 @@
-POST http://test.example/predict?results=5
+POST http://127.0.0.1:8000/predict?results=5
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary

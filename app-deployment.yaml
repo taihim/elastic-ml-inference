@@ -5,9 +5,7 @@ metadata:
   labels:
     app: classifier-api
 spec:
-  # Run two copies of the Pod
   replicas: 2
-  # Perform rolling updates, starting containers before stopping the old ones
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -15,8 +13,6 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      # This is how the Deployment recognizes its Pods, has to match the labels
-      # of the Pod template
       app: classifier-api
   template:
     metadata:
@@ -24,17 +20,13 @@ spec:
         app: classifier-api
     spec:
       containers:
-        # Here's our Flask container
         - name: classifier-app
-          image: taihim18/resnet-classifier:v1.0.0
+          image: taihim18/resnet-classifier:latest
           ports:
-            # This is the port we'll expose to the internet eventually
             - name: web
               containerPort: 8000
           resources:
             requests:
-              cpu: 200m # Request very little CPU
-            #              memory: 100Mi # Request that this memory be allocated to us
+              cpu: 200m
             limits:
-              cpu: 500m # Throttle the container if using more CPU
-#              memory: 100Mi # Terminate the container if using more memory
+              cpu: 500m
