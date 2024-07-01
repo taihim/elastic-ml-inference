@@ -28,15 +28,17 @@ async def index() -> str:
 
 @post("/predict", media_type=MediaType.JSON, status_code=HTTP_200_OK)
 async def predict(
-        data: Annotated[FormData, Body(media_type=RequestEncodingType.MULTI_PART)], results: int = 5
+    data: Annotated[FormData, Body(media_type=RequestEncodingType.MULTI_PART)], results: int = 5
 ) -> bytes:
     """Returns the predictions for the input image."""
     start_time = time.time()
     content = await data.image.read()
     input_img = load_img_from_bytes(content)
     # TODO: create a return type model for the predict function
-    result = {"predictions": ResnetClassifier.get_or_create_instance().predict(img=input_img, n_results=results),
-              "latency": 0}
+    result = {
+        "predictions": ResnetClassifier.get_or_create_instance().predict(img=input_img, n_results=results),
+        "latency": 0,
+    }
     end_time = time.time()
     result["latency"] = end_time - start_time
     PREDICT_REQUEST_LATENCY.observe(result["latency"])

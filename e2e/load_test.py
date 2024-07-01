@@ -4,18 +4,18 @@ import httpx
 
 
 async def call_url(client):
-    url = 'http://test.example/predict'
+    url = "http://test.example/predict"
     files = {
-        'image': ('dishwasher.JPEG', open('dishwasher.JPEG', 'rb'), 'image/jpeg'),
-        'filename': (None, 'dishwasher.JPEG')
+        "image": ("dishwasher.JPEG", open("dishwasher.JPEG", "rb"), "image/jpeg"),
+        "filename": (None, "dishwasher.JPEG"),
     }
-    response = await client.request(method='POST', url=url, files=files, timeout=None)
+    response = await client.request(method="POST", url=url, files=files, timeout=None)
 
     return response
 
 
 async def main():
-    with open('wl.txt', 'r') as f:
+    with open("wl.txt") as f:
         line = f.read()
     workload = [int(i) for i in line.split(" ")]
     for load in workload:
