@@ -17,7 +17,8 @@ async def call_url(client):
 async def main():
     with open("wl.txt") as f:
         line = f.read()
-    workload = [int(i) for i in line.split(" ")]
+    workload = [int(int(i) / 1.5) for i in line.split(" ")]
+
     for load in workload:
         print(f"Running workload {load}")
         async with httpx.AsyncClient() as client:

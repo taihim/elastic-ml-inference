@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-adapter
+  namespace: default
+data:
+  config.yaml: |-
+    rules:
+      - seriesQuery: 'predict_latency_sum{kubernetes_namespace!="",kubernetes_pod_name!=""}'
+        resources:
+          overrides:
+            kubernetes_namespace: { resource: "namespace" }
+            kubernetes_pod_name: { resource: "pod" }
+        name:
+          matches: "^(.*)_sum"
+          as: "${1}_per_second"
+        metricsQuery: 'sum(rate(<<.Series>>{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>)'
