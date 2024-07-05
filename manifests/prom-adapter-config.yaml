@@ -13,5 +13,5 @@ data:
             kubernetes_pod_name: { resource: "pod" }
         name:
           matches: "^(.*)_sum"
-          as: "${1}_per_second"
-        metricsQuery: 'sum(rate(<<.Series>>{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>)'
+          as: "${1}_average"
+        metricsQuery: 'sum(avg_over_time(<<.Series>>{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>) / sum(avg_over_time(predict_latency_count{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>)'
