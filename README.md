@@ -198,7 +198,7 @@ To get a specific metric:
 kubectl get --raw "/apis/custom.metrics.k8s.io/v1beta2/namespaces/default/pods/*/predict_latency_average"
 ```
 
-### We can use the default HPA with any custom metrics from prometheus now
+### Now, we can use the default HPA with any custom metrics from prometheus 
 
 There is a sample config in the manifests folder that can be used to demonstrate this:
 
