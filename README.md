@@ -54,7 +54,7 @@ minikube start
 minikube addons enable metrics-server
 ```
 
-### Deploy the classification app to minikube according to settings in app-deployment.yaml
+### Deploy the image classification app to minikube according to settings in app-deployment.yaml
 
 ```
 kubectl apply -f manifests/app-deployment.yaml
