@@ -208,7 +208,7 @@ kubectl apply -f manifests/app-hpa-custom.yaml
 
 ### Run a custom autoscaler
 
-There is a custom implementation of an autoscaler in the autoscaler directory.
+There is a custom implementation of an autoscaler in the autoscaler directory. It is a WIP.
 
 First, if you are running any instance of HPA, delete it using
 
