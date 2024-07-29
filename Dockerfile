@@ -19,7 +19,7 @@ FROM python:$PYTHON_BASE
 # retrieve packages from build stage
 COPY --from=builder /project/.venv/ /project/.venv
 ENV PATH="/project/.venv/bin:$PATH"
-# set command/entrypoint, adapt to fit your needs
+# set command/entrypoint
 COPY src /project/src
 WORKDIR /project
 
